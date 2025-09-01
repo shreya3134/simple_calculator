@@ -1,0 +1,110 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f7f7f7;  
+  margin: 0;
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #333;
+  font-size: 28px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.calculator {
+  background: #ffffff;  
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 260px;
+  border: 1px solid #ddd; 
+}
+
+input[type="text"] {
+  width: 90%;
+  height: 40px;
+  font-size: 18px;
+  padding: 5px 10px;
+  margin-bottom: 15px;
+  text-align: right;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  pointer-events: none; 
+  background: #f4f4f4;  
+  transition: background 0.3s ease;
+}
+
+input[type="text"]:focus {
+  background: #e2f7ff;  
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+button {
+  height: 45px;
+  font-size: 18px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* Clear button (1st button) - red */
+.buttons button:nth-child(1) {
+  background: #ef7878;
+}
+
+/* Parentheses buttons (2nd and 3rd) - light blue */
+.buttons button:nth-child(2),
+.buttons button:nth-child(3) {
+  background: #4baef5;
+}
+
+/* Operators (every 4th button starting from 4th) - peach */
+.buttons button:nth-child(4),
+.buttons button:nth-child(8),
+.buttons button:nth-child(12),
+.buttons button:nth-child(16) {
+  background: #f9baa8;
+  color: #333;
+}
+
+/* Number buttons and '.' - light blue */
+.buttons button:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(3)):not(:nth-child(4)):not(:nth-child(8)):not(:nth-child(12)):not(:nth-child(16)) {
+  background: #4baef5;
+}
+
+/* Equals button spans 2 columns and slightly different color */
+.buttons button[style*="grid-column"] {
+  background: #58c6fa;
+}
+
+/* Hover effect for all buttons */
+button:hover {
+  background: hsl(207, 88%, 62%);
+  transform: scale(1.1);
+}
+
+/* Active (clicked) effect */
+button:active {
+  background: #3a99d9;
+  transform: scale(0.98);
+}
+
+/* Focus within effect */
+button:focus-within {
+  outline: none;
+  box-shadow: 0 0 5px 2px #a0d2ff;
+}
